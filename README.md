@@ -8,11 +8,11 @@
    2. apt-get install build-essential libltdl7 sudo
 5. 端口
    1. 8080客户端
-   2. 50000 jenkins 信息
+   2. 50000 JNLP使用的端口，具体可以查jenkins文档/google
 6. 与宿主机共享docker
    1.  -v /var/run/docker.sock:/var/run/docker.sock
    2.  -v $(which docker):$(which docker)
-7. 挂载docker数据
+7. 挂载docker数据, 挂载后可以通过sudo docker volume ls 命令查看，保留相应的配置插件数据
    1. -v jenkins_home:/var/jenkins_home
 8. 运行
 ````
@@ -27,7 +27,6 @@ docker run \
     --name jenkins \
     registry.cn-hangzhou.aliyuncs.com/provide-a-name/jenkins:betal
 ````
-
 
 ps:
     1. 运行make build，使用 Makefile 打包jenkins镜像，再根据自己的情况是否上传到自己的容器镜像服务器
